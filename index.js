@@ -1,5 +1,8 @@
 function fetchBooks() {
-
+  return fetch('https://anapioficeandfire.com/api/books')
+  //bc this is an async function the test needed a return in order to call the .then on line 19
+  .then(response => response.json())
+  .then(data => renderBooks(data))
 }
 
 function renderBooks(books) {
@@ -13,4 +16,7 @@ function renderBooks(books) {
 
 document.addEventListener('DOMContentLoaded', function() {
   fetchBooks()
+  .then() //() => console.log("After fetched books"))
+// add code inside the .then statement in order to see the same erorr
+//from the test inside the console. 
 })
